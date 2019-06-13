@@ -1,21 +1,29 @@
-# Documentation: https://roots.io/trellis/docs/remote-server-setup/
+# Documentation: https://roots.io/trellis/docs/local-development-setup/
 # `wordpress_sites` options: https://roots.io/trellis/docs/wordpress-sites
-# Define accompanying passwords/secrets in group_vars/production/vault.yml
+# Define accompanying passwords/secrets in group_vars/development/vault.yml
 
 wordpress_sites:
-  example.com:
+  pltrelliscool.tk:
     site_hosts:
-      - canonical: example.com
-        redirects:
-          - www.example.com
+      - canonical: www.pltrelliscool.tk
+#        redirects:
+#          - www.example.test
     local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
-    repo: git@github.com:example/example.com.git # replace with your Git repo URL
-    repo_subtree_path: site # relative path to your Bedrock/WP directory in your repo
-    branch: master
+    admin_email: pilourerolle@gmail.com
     multisite:
       enabled: false
     ssl:
       enabled: false
-      provider: letsencrypt
+      provider: self-signed
     cache:
       enabled: false
+    repo: git@github.com:Plrerolle/pltrelliscool.tk.git
+    repo_subtree_path: site
+    branch: master
+    env:
+      wp_home: http://pltrelliscool.tk
+      wp_siteurl: http://pltrelliscool.tk/wp
+      wp_env: production
+      db_name: pltrelliscool_db
+      db_user: admin
+    deploy_keep_releases: 5
