@@ -21,8 +21,8 @@ wordpress_sites:
     repo_subtree_path: site
     branch: master
     env:
-      wp_home: http://pltrelliscool.tk
-      wp_siteurl: http://pltrelliscool.tk/wp
+      wp_home: http://www.pltrelliscool.tk
+      wp_siteurl: http://www.pltrelliscool.tk/wp
       wp_env: production
       db_name: pltrelliscool_db
       db_user: admin
